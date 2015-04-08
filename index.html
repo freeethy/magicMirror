@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>魔镜试戴系统</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <title>魔镜试戴系统</title>
+    <link href="css/zdf.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-app="httpApp" ng-controller="httpController">
+<div class="zdf-container" ng-if="info.backgroundPic" ng-style="{'background-image':'url({{info.backgroundPic+'.png'}})'}">
+    <!--头部 start-->
+    <div class="zdf-top">
+        <div class="zdf-logow">
+            <div class="zdf-logo">魔镜试戴系统</div>
+        </div>
+    </div>
+    <!--头部 end-->
+    <!--中间 start-->
+    <div class="zdf-cont">
+        <div class="zdf-banner">魔镜魔镜，告诉我世界上最美丽的人是？</div>
+        <div class="zdf-head">
+            <div class="zdf-headimgbg" ng-if="info.userPic" ng-style="{'background-image':'url({{info.userPic}})'}"></div>
+            <canvas class="zdf-headcanvas" id="canvas1"></canvas>
+            <img src="images/img-head.jpg" style="display:none;">
+        </div>
+
+        <div class="zdf-face"><span>搭配上周大福的珠宝您的颜值为</span>
+            <div class="zdf-facelove">
+                    <em ng-repeat="num in nums"></em>
+            </div>
+            <canvas id="canvas2" width=100 height=50>buzhichi</canvas>
+        </div>
+
+        <div class="zdf-txtw">
+            <div class="zdf-imgw">
+                <img ng-src="{{info.qrCode}}" class="zdf-img">
+                <span class="zdf-scanme">扫我分享吧</span>
+            </div>
+            <div class="zdf-txt">
+                <p ng-show="info.isPrize">{{info.winDesc}}</p>
+                <p ng-hide="info.isPrize">{{info.loseDesc}}</p>
+                <img ng-src="{{info.userPic}}" alt="" onload="test()" style="display: none"/>
+            </div>
+            <div class="zdf-cupon">
+                <img src="images/ico_cupon.png">
+            </div>
+        </div>
+    </div>
+    <!--中间 end-->
+    <div class="zdf-push"></div>
+</div>
+<!--尾部 start-->
+<div class="zdf-footer">
+</div>
+<!--尾部 end-->
+<script src="angular.js"></script>
+<script src="http.js"></script>
+<script src="canvas.js"></script>
+</body>
+</html>
